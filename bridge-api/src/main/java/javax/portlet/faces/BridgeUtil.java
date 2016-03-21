@@ -32,7 +32,13 @@ public final class BridgeUtil {
 	}
 
 	public static Bridge.PortletPhase getPortletRequestPhase() {
+
 		FacesContext facesContext = FacesContext.getCurrentInstance();
+		return getPortletRequestPhase(facesContext);
+	}
+
+	public static Bridge.PortletPhase getPortletRequestPhase(FacesContext facesContext) {
+
 		ExternalContext externalContext = facesContext.getExternalContext();
 		Map<String, Object> requestMap = externalContext.getRequestMap();
 
@@ -40,6 +46,7 @@ public final class BridgeUtil {
 	}
 
 	public static boolean isPortletRequest() {
+
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
 		Map<String, Object> requestMap = externalContext.getRequestMap();
